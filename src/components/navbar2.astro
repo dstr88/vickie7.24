@@ -1,0 +1,350 @@
+---
+import Navcard from "./navcard.astro";
+---
+
+    
+    
+    <div id="navbar">
+    <nav id="navbar container bg-transparent">
+      <Navcard />
+      <!--BBBtag Left
+      <a href="https://www.bbb.org/us/tn/maryville/profile/mental-health-services/the-lions-lamb-family-therapy-llc-0533-90042351/#sealclick" target="_blank" rel="nofollow"><img src="https://seal-knoxville.bbb.org/seals/blue-seal-200-65-bbb-90042351.png" style="border: 0;" alt="The Lion's Lamb Family Therapy, LLC BBB Business Review" /></a>  -->
+      <!-- BEGIN: BBB AB Seal --
+<script type="text/javascript">
+      var bbb = bbb || [];
+      bbb.push(["bbbid", "knoxville"]);
+      bbb.push(["bid", "90042351"]);
+      bbb.push(["chk", "B97D3495F8"]);
+      bbb.push(["pos", "top-right"]);
+      (function () {
+          var scheme = (("https:" == document.location.protocol) ? "https://" : "http://");
+          var bbb = document.createElement("script");
+          bbb.type = "text/javascript";
+          bbb.async = true;
+          bbb.src = scheme + "seal-knoxville.bbb.org/badge/badge.min.js";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(bbb, s);
+      })();
+  </script>
+  <!-- END: BBB AB Seal -->
+  
+
+       <!-- Google Calendar Appointment Scheduling begin --
+            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ32H0HJslX48oltXq49UPY2rzTGQx1T0FsAkvCW0Zah3r__gJz7Ec6GG9TKRY4AfBKtY9zvNLDq?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+             end Google Calendar Appointment Scheduling -->
+
+
+    <!-- hamburgerMenu -->
+    <div class="navbar-container container bg-transparent">
+       <button
+          type="button"
+          id="navbar-toggle"
+          aria-controls="navbar-menu"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          >
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       </button>
+       <div id="navbar-menu" aria-labelledby="navbar-toggle  bg-transparent">
+          <ul class="navbar-links">
+             <li class="navbar-item"><a class="navbar-link" href="/">Home</a></li>
+             <li class="navbar-item"><a class="navbar-link" href="/vickie2">About Vickie</a></li>
+             <li class="navbar-item"><a class="navbar-link" href="/costAnalasis">Rates & Info</a></li>
+             <li class="navbar-item"><a class="navbar-link" href="/learnmore">Learn</a></li>
+             <li class="navbar-item"><a class="navbar-link" href="/blog">blog</a></li>
+          </ul>
+       </div>
+    </div> 
+</nav>
+</div>
+
+ 
+ 
+<style>
+
+    :root {
+  --navbar-bg-color: hsl(0, 0%, 15%); 
+  --navbar-text-color: hsl(0, 0%, 85%);
+  --navbar-text-color-focus: white;
+  --navbar-bg-contrast: hsl(0, 0%, 25%);
+  margin:0;
+  padding:0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  margin-top:0;
+  padding: 0;
+}
+
+.w3-container{
+    white-space: nowrap;
+} 
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+ } 
+.p{
+  color:#488494;
+}
+ 
+
+.home-link{
+    margin-left: 25px;
+}
+#navbar {
+  --navbar-height: 74px;
+  /*position:fixed;    -means that the navbardoes not scroll*/
+  /*transform: translateY(-40px);  */
+  height: var(--navbar-height);
+  background-color: var(--navbar-bg-color);
+  left: 0;
+  right: 0;
+  margin-top: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  z-index: 900;
+}
+
+.navbar-container {
+  display: flex;
+  margin-top:0;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.navbar-item {
+  margin: 0.4em;
+  margin-left: 80px;
+  width: 100%;
+}
+
+.home-link,
+.navbar-link {
+  color: var(--navbar-text-color); 
+  /*color:#8B5B29;  */
+
+  text-decoration: none;
+  display: flex;
+  font-weight: 800;
+  align-items: center;
+  z-index:1001
+}
+
+.home-link:is(:focus, :hover) {
+  color: var(--navbar-text-color-focus);
+}
+
+.navbar-link {
+  justify-content: center;
+  width: 70%;
+  padding: 0.4em 0.8em;  
+  border-radius: 5px;
+ 
+}
+
+
+.navbar-link {
+    justify-content: center;
+    width: 100%;
+    padding: 0.4em 0.8em;
+    border-radius: 5px;
+}
+
+.navbar-link:is(:focus, :hover) {
+  color: var(--navbar-text-color-focus);
+  background-color: var(--navbar-bg-contrast);
+}
+
+.navbar-logo {
+  background-color: var(--navbar-text-color-focus);
+  border-radius: 50%;
+  /*color:#8B5B29;  */
+  color: var(--navbar-text-color-focus);
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  margin-inline-start: 0.5em;
+  z-index: 1001;
+}
+/*
+#navbar-toggle {
+  display: flex;  
+  cursor: pointer;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  margin:auto auto;
+  /*margin-top: 20px; *--
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.icon-bar {
+  display: block;
+  width: 25px;
+  height: 4px;
+  margin: 2px;
+ background-color: var(--navbar-text-color);
+}
+
+#navbar-toggle:is(:focus, :hover) .icon-bar {
+  background-color: var(--navbar-text-color-focus);
+}
+#navbar-toggle[aria-expanded='true'] .icon-bar:is(:first-child, :last-child) {
+  margin: 0;
+  width: 30px;
+}
+
+#navbar-toggle[aria-expanded='true'] .icon-bar:first-child {
+  transform: rotate(45deg);
+}
+
+#navbar-toggle[aria-expanded='true'] .icon-bar:nth-child(2) {
+  opacity: 0;
+  justify-content: center; 
+}
+
+#navbar-toggle[aria-expanded='true'] .icon-bar:last-child {
+  transform: rotate(-45deg);  
+}  */
+
+#navbar-menu {
+    position: fixed; 
+    top: var(--navbar-height); 
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    background-color: transparent;
+    left:0;
+    right: 0;
+}
+
+#navbar-toggle[aria-expanded='true'] + #navbar-menu {
+   background-color: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar-links {
+    list-style: none;
+    position: absolute;
+    background-color: var( --navbar-bg-color);   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: ;
+    right: 0;
+    margin: 1.4rem;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    z-index:1000;
+}
+
+.navbar-info {
+   position:absolute;
+    z-index: 1005;
+    background-color: transparent;
+}
+
+#navbar-toggle[aria-expanded='true'] + #navbar-menu .navbar-links {
+    /*padding: 1em; */
+    background-color: transparent;
+}
+/*
+.button {
+  background-color:black; 
+  border: 2px solid #8B5B29;
+  border-style: double;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  transition-duration: 0.4s;
+  
+}  */
+
+
+@media screen and (min-width: 700px)  {
+    #navbar-toggle,
+    #navbar-toggle[aria-expanded='true'] {
+        display: none;
+        justify-content: center;
+    }
+
+    nav-toggle{
+        display: none;
+    }
+
+    #navbar-menu,
+    #navbar-toggle[aria-expanded='true'] + #navbar-menu {
+        visibility: visible;
+        opacity: 1;
+        position: static;
+        display: block;
+        height: 100%;
+    }
+    
+    .navbar-links,
+  #navbar-toggle[aria-expanded='true'] + #navbar-menu .navbar-links {
+    margin-top: 0;
+    margin-left: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    position: static;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+</style>
+
+<!-- --
+
+<script client:load>
+// Selecting the navbar and toggle button
+const navbar = document.querySelector('#navbar');
+const navbarToggle = navbar?.querySelector('#navbar-toggle');
+
+let isNavbarExpanded = false;
+
+// Function to toggle the navbar visibility
+const toggleNavbarVisibility = () => {
+  isNavbarExpanded = !isNavbarExpanded;
+  if (navbarToggle) {
+    navbarToggle.setAttribute('aria-expanded', isNavbarExpanded.toString()); // Convert boolean to string
+  }
+};
+
+// If navbarToggle is present, add the click event listener
+if (navbarToggle) {
+  isNavbarExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+  navbarToggle.addEventListener('click', toggleNavbarVisibility);
+}
+
+// Selecting the navbar menu and navbar links container
+const navbarMenu = document.querySelector('#navbar-menu'); // Fixed typo
+const navbarLinksContainer = document.querySelector('.navbar-links');
+
+if (navbarLinksContainer) {
+  // Stop click propagation on navbar links container
+  navbarLinksContainer.addEventListener('click', (e: MouseEvent) => e.stopPropagation());
+}
+
+if (navbarMenu) {
+  // Close the navbar menu by clicking outside of the navbar links
+  navbarMenu.addEventListener('click', toggleNavbarVisibility);
+}
+
+ 
+</script>   -->

@@ -1,0 +1,49 @@
+---
+const { post } = Astro.props;
+---
+
+<li class="blog-card">
+  <h2 class="post-title">
+    <a href={`/${post.slug}`} class="post-link">{post.title}</a>
+  </h2>
+  <p class="post-date">
+    {new Date(post.$createdAt).toLocaleDateString()}
+  </p>
+</li>
+
+<style>
+  .blog-card {
+    background-color: darkslategray;
+    color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .post-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .post-link {
+    color: antiquewhite;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .post-link:hover {
+    color: whitesmoke;
+    text-decoration: underline;
+  }
+
+  .post-date {
+    font-size: 0.875rem;
+    color: #ccc;
+    margin-top: auto;
+  }
+</style>

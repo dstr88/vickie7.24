@@ -1,0 +1,228 @@
+---
+//   /pages/index.astro
+import Layout from "../layouts/layout.astro";
+import SadEyes from "../components/seyes2.astro";
+import Vickie from "../components/vickiesPic.astro";
+import BlogPost from "../components/FronPage.astro";
+import { ArticleData } from "../lib/ArticleData";
+
+// Instantiate the ArticleData class and initialize it
+const articleData = new ArticleData();
+await articleData.initialize(); // Initialize asynchronously
+
+// Fetch the most recent post
+const mostRecentPost = articleData.getPostAt(0); // Get the newest post (if any)
+const consultLink = articleData.getSecret().CONSULT_LINK; // Access consultation link
+---
+<div class="wrapper">
+   <Layout>
+      <div id="main-content">
+         <div class="sadeyes">
+            <SadEyes />
+         </div>
+      </div>
+      <div class="twocorfoureight">
+         <div class="text1">
+            <h4>
+               We've been surrounded and battered by troubles, but we're not demoralized; we're not sure what to do, but we know that God knows what to do; we've been spiritually terrorized, but God hasn't left our side; we've been thrown down, but we haven't broken.
+            </h4>
+            <span class="smallfont">2Cor.4.8-9</span>
+         </div>
+      </div>
+      <div class="grid-container">
+         <div class="column1a">
+            <Vickie />
+         </div>
+         <div class="column2a">
+            <div class="texta">
+               <h5>Can You Relate?</h5>
+               <p>You just can't shake that black fog over your head. You don't think you can make it another day.  Today was the worst yet. You don't want to die; you just can't live.  It feels like you can't do anything right, and you don't know where to turn.  You pray to God that if you don't get help, you're not going to make it.  There's so much chaos in your head you can't even think, much less pray, and there's nowhere to turn. You've done everything you know to do, and it's never enough. You can't get it right , and no matter how hard you try, you're always letting somebody down. Your kids are a mess, and you spouse barely talks anymore. You just can't go on like this, and all you can think is, "God, please help me!".</p>
+            </div>
+         </div>
+         <div class="textb">
+            <h5>Love them to death?</h5>
+            <p>Someone told me, "When I learned that I was literally loving my son to death, I decided to change." You can turn the corner, and this doesn't have to be you.  You can recognize the difference between helping and enabling your loved ones. You don't have to love them to death, literally. Together, with my help, you can let go of the need to be in control and instead sit back and watch them thrive.  Yes, you will be able to thrive with them. Family and friends will want to be around you again; they will feel loved instead of controlled. Their anger will subside, and they will start to have compassion for you as you learn to tell them what you need. You can laugh with them again. 
+               <br> It's time to get help!&nbsp;&nbsp;
+               <strong>
+               <a href='https://calendar.google.com/calendar/appointments/schedules/AcZssZ32H0HJslX48oltXq49UPY2rzTGQx1T0FsAkvCW0Zah3r__gJz7Ec6GG9TKRY4AfBKtY9zvNLDq?gv=true'>   Click here for a 15 minute consult</a>
+               </strong>&nbsp;&nbsp;-the call is free!
+            </p>
+         </div>
+         <div class="textc">
+            <h5>Exhausted?</h5>
+            <p>You spend your entire life trying to take care of the people around you. You just want to make them happy.  The thought of somebody hurting or being angry with you turns your stomach, and you just have to give in and make it right, no matter the cost. You are strong, and you can take it; you can handle whatever gets thrown your way. You just want to make the people around you better, but then you end up in that dark place where you have become the martyr you were never meant to be. You're ready to do whatever it takes to make the changes and leave the storm behind.</p>
+         </div>
+      </div>
+<div class="Vickivideo" style="position: relative; padding-bottom: 54.9%; height: 50px;">
+   <iframe src="https://www.loom.com/embed/858bc80c49b548f6a9582640c7924181?sid=3bdc3848-dede-4192-b1a6-cb080a91d839" allowfullscreen  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<div class="photo">
+<p>Do you ever feel pressed on every side by troubles, but you are not crushed. Perplexed, or driven to despair? Do you feel hunted down, but know you are never abandoned by God? Sometimes you may get knocked down, but you are not destroyed. Let's talk! 
+<a href="https://calendar.app.google/LSEwfCBFsRXHp7Q38">Schedule a brief consultation</a> – it's free.
+</p>
+</div>
+<div class="blogtitles">
+<h1 class="sr-only title">Latest Blog Post</h1>
+{mostRecentPost ? (
+<div class="list">
+<BlogPost post={mostRecentPost} />
+</div>
+) : (
+<p>No recent posts available.</p>
+)}
+<div class="read-more">
+<a href="/blog">Read More Posts</a>
+</div>
+</Layout>
+</div>
+
+
+
+<style>
+   :root {
+   --bg-color: darkslategray;
+   --text-color: white;
+   --link-color: antiquewhite;
+   --hover-color: whitesmoke;
+   --accent-color: #7d4893;
+   --video-bg: #488494;
+   --font-main: "Open Sans", sans-serif;
+   --font-secondary: "Raleway", sans-serif;
+   }
+   * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   }
+   body, html, #main-content, .wrapper {
+   max-width: 100%;
+   width: 100%;
+   overflow-x: hidden;
+   }
+   .sadeyes {
+   position: relative;
+   z-index: -5;
+   max-width: 100%;
+   height: auto;
+   overflow: hidden;
+   }
+   .read-more{
+   margin-left: 15rem;
+   }
+   .twocorfoureight, .texta, .textb, .textc {
+   padding: 1rem;
+   color: var(--text-color);
+   background: var(--bg-color);
+   font-family: var(--font-secondary);
+   line-height: 1.6;
+   }
+   .twocorfoureight {
+   height: 15rem;
+   font-weight: 100;
+   font-size: x-large;
+   }
+   .grid-container {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 20px;
+   padding: 20px;
+   background-color: var(--bg-color);
+   }
+   .texta, .textb, .textc {
+   background-color: var(--accent-color);
+   font-family: var(--font-main);
+   font-style: italic;
+   }
+   .Vickivideo {
+   padding: 6rem;
+   background-color: var(--video-bg);
+   }
+   .photo{
+   background: darkslategray;
+   color: white;
+   padding:3rem;
+   }
+   a {
+   color: var(--link-color);
+   text-decoration: underline;
+   }
+   a:hover, a:active {
+   color: var(--hover-color);
+   border: 2px solid var(--text-color);
+   cursor: pointer;
+   }
+   .blogtitles h1 {
+   width: 100%;
+   word-wrap: break-word; /* Ensures text wrapping */
+   }
+   .list {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   }
+   .list li {
+   width: 100%;
+   max-width: 600px; /* Adjust this value as needed */
+   margin-bottom: 1rem;
+   word-wrap: break-word; /* Ensures text wrapping within list items */
+   }
+   .blogtitles {
+   background-color: var(--bg-color);
+   color: var(--text-color);
+   padding: 2rem;
+   max-width: 100%; /* Adjust this value as needed */
+   margin: 0 auto; /* Centers the box horizontally */
+   text-align: center; /* Centers the text within the box */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   }
+   .blogtitles h1 {
+   width: 100%;
+   word-wrap: break-word; /* Ensures text wrapping */
+   }
+   .list h2 {
+   font-size: 1.25rem;
+   margin-bottom: 0.5rem;
+   }
+   .list a {
+   color: var(--link-color);
+   text-decoration: none;
+   }
+   .list a:hover {
+   color: var(--hover-color);
+   text-decoration: underline;
+   }
+   .list p {
+   font-size: 0.875rem;
+   color: #ccc;
+   }
+   .smallfont {
+   font-size: 12px;
+   }
+   @media (max-width: 768px) {
+   .list {
+   grid-template-columns: 1fr; /* Single column on smaller screens */
+   }
+   .grid-container {
+   grid-template-columns: 1fr;
+   }
+   .column2, .texta, .textb, .textc {
+   max-width: 100%;
+   width: 100%;
+   margin: 1rem 0;
+   }
+   }
+   @media (max-width: 480px) {
+   .Vickivideo {
+   padding: 2rem;
+   }
+   .grid-item iframe {
+   height: 56.25vw;
+   width: 100%;
+   position: relative;
+   }
+   }
+</style>

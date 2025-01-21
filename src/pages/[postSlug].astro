@@ -1,0 +1,211 @@
+---
+import Container from '../components/container.astro';
+import BlogHead from "../components/bloghead.astro";
+import Bpost from "../components/Bpost.astro";
+import { ArticleData, BlogPost, formatTimeToCustomUTC } from '../lib/ArticleData';
+import { decodeHtmlEntities, sanitizeHtml } from '../lib/htmlutils';
+
+// Fetch paths at build time
+export async function getStaticPaths() {
+  const articleData = new ArticleData(); // Instantiate ArticleData
+  await articleData.initialize(); // Initialize posts
+
+  try {
+    const posts = await articleData.getPosts(); // Fetch posts
+
+    // Generate paths
+    const paths = posts.map((post) => ({
+      params: { postSlug: post.slug },
+      props: {
+        post: {
+          ...post,
+          content: sanitizeHtml(decodeHtmlEntities(post.content)), // Sanitize content
+          formattedTimestamp: formatTimeToCustomUTC(post.timestamp), // Format timestamp
+        },
+      },
+    }));
+
+    console.log('Generated paths:', paths); // Debugging
+    return paths;
+  } catch (error) {
+    console.error('Failed to fetch posts for static paths:', error);
+    return []; // Return an empty array if there's an error
+  }
+}
+
+// Access the post from Astro.props
+const { post } = Astro.props;
+
+// Redirect if the post does not exist
+if (!post) {
+  return Astro.redirect('/blog'); // Redirect to the blog listing if the post is missing
+}
+---
+
+<div class="pg">
+  <BlogHead />
+  <Container>
+    <Bpost post={post} />
+  </Container>
+</div>
+<style>
+  .pg {
+    background-color: darkslategray;
+    color: antiquewhite;
+    font-size: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .post-content {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .post-content :global(*) {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .post-content :global(pre),
+  .post-content :global(code) {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  .post-content :global(img),
+  .post-content :global(video) {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .post-content :global(table) {
+    max-width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .post-content :global(a) {
+    color: #FFD700;
+    text-decoration: underline;
+    padding: 2px 4px;
+    transition: all 0.3s ease;
+  }
+
+  .post-content :global(a:hover) {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #FFD700;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .pg {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+
+ /* .pg {
+    background-color: darkslategray;
+    color: antiquewhite;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  
+
+  .post-content {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .post-content * {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .post-content pre,
+  .post-content code {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  .post-content img,
+  .post-content video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 2px 4px;
+}
+
+  .post-content table {
+    max-width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .post-content a {
+    color: #FFD700 !important; /* Gold color for better visibility */
+    text-decoration: underline;
+    padding: 2px 4px;
+  }
+
+  /* Hover effect for links inside post content *--
+  .post-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid #FFD700;
+    text-decoration: none;
+  }
+
+  * General link styles *--
+.pg a,
+.post-content a {
+    color: #FFD700 !important; /* Gold color for better visibility *--
+    text-decoration: underline !important;
+    padding: 2px 4px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for all links *--
+.pg a:hover,
+.post-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid #FFD700 !important;
+    text-decoration: none !important;
+}
+
+  @media (max-width: 768px) {
+    .pg {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+    */
+</style>

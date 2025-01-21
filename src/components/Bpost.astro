@@ -1,0 +1,51 @@
+---
+//   ./components/Bpost.astro
+
+import type { BlogPost } from '../lib/ArticleData';
+
+const { post } = Astro.props;
+
+if (!post) {
+  throw new Error('Post data is missing.');
+}
+---
+<article class="bpost">
+  <header>
+    <h1>{post.title}</h1>
+    <p class="timestamp">Published: {post.formattedTimestamp}</p>
+  </header>
+  <section>
+    <div class="content" set:html={post.content}></div>
+  </section>
+</article>
+
+<style>
+.bpost {
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  background-color: #2f4f4f;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bpost header {
+  margin-bottom: 2rem;
+}
+
+.bpost h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.bpost .timestamp {
+  font-size: 1rem;
+  color: #cccccc;
+}
+
+.bpost .content {
+  line-height: 1.8;
+  font-size: 1.2rem;
+}
+</style>

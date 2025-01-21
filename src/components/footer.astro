@@ -1,0 +1,215 @@
+---
+import { Image } from "astro:assets";
+import TH from "../assets/titaniumHutLogo.png";
+import FAQ from "./faq2.astro";
+
+interface Props {
+  name?: string;
+  [key: string]: any;
+}
+
+const { name, ...rest } = Astro.props;
+
+const today = new Date();
+const currentYear = today.getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <div class="scroll-box">
+        <FAQ />
+      </div>
+    </div>
+    <div class="footer-column">
+      <div class="contact-info">
+        <div class="footer-section map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.9734865466485!2d-83.98038792391696!3d35.75145642611268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x885c05bc3ec55555%3A0xd68aa86863a1344c!2sThe%20Lion&#39;s%20Lamb%20Family%20Therapy%2C%20LLC!5e0!3m2!1sen!2sus!4v1721441589879!5m2!1sen!2sus" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p>523 Lamar Alexander PKWY Maryville, TN</p>
+        <p>
+          <a href="tel:865-213-1535" class="phone-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+            </svg>
+            <span class="ms-1">865-213-1535</span>
+          </a>
+        </p>
+        <div>
+          <p>Our goal is to serve well. If you feel we have missed the mark, let us know!</p>
+          <a href="mailto:vickie@thelionslamb.com" class="mail-link">Contact Us</a>
+          <h3>Leave a Review</h3>
+          <p>Some people leave a positive review on these platforms</p>
+          <div class="review-buttons">
+            <a href="https://g.page/r/CUw0oWNoqIrWEBM/review" class="review-button google">Google</a>
+            <a href="https://yelp.com/biz/the-lions-lamb-family-therapy-maryville?hrid=SXFxhShFaVDeXFmuhcIpgw&utm_medium=copy_link&utm_source=biz_post_share&l=en_US" class="review-button yelp">Yelp</a>
+            <a href="https://www.facebook.com/profile.php?id=61558971458155&sk=reviews" class="review-button facebook">Facebook</a>
+      </div>
+        </div>
+        <Image src={TH} alt="Titanium Hut Logo" width={150} height={150} />
+        <p>Website built by Titanium Hut</p>
+        <p>&copy; {currentYear} Titanium Hut. All rights reserved.</p>
+      </div>
+      <!--consent preference JS code is in the header and should work but does not IDK why-->
+      <a href="#" class="consent-button">Consent Preferences</a>
+      <!--Acceptable Use policy -->
+      <div class="private">
+        <iframe src="https://app.termly.io/policy-viewer/policy.html?policyUUID=167b8ccf-8a07-4243-8f47-cbb9e1b3aa85" class="policy-iframe"></iframe>
+      </div>
+    </div>
+    <div class="footer-column">
+      
+      <div class="scroll-box">
+        <div class="private">
+          <iframe src="https://app.termly.io/policy-viewer/policy.html?policyUUID=407dea9e-b5ba-4b3d-8903-fba6655a9d75" class="policy-iframe"></iframe>
+        </div>
+        <div class="cookies">
+          <iframe src="https://app.termly.io/policy-viewer/policy.html?policyUUID=d0db16e9-d789-4132-b018-dcb84349a4cb" class="policy-iframe"></iframe>
+        </div>
+        <div class="footer-bottom">
+          <iframe src="https://app.termly.io/policy-viewer/policy.html?policyUUID=5cfe51ba-eb32-4f0e-b0c6-210c11799d83" class="policy-iframe"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  :root {
+    --bg-color: #282c34;
+    --text-color: #ffffff;
+    --accent-color: #3498db;
+    --hover-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .footer {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .footer-column {
+    flex: 1;
+    min-width: 300px;
+    padding: 1rem;
+  }
+
+  .scroll-box {
+    max-height: 800px;
+    overflow-y: auto;
+    padding: 1rem;
+    border: 1px solid #444;
+    background-color: #333;
+  }
+
+  .contact-info {
+    text-align: left;
+  }
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-style: italic;
+    padding: 2px 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--text-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  a:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+
+  a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .review-button {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: opacity 0.3s;
+  }
+
+  .review-button:hover {
+    opacity: 0.8;
+  }
+
+  .google { background-color: #4285F4; }
+  .yelp { background-color: #FF1A1A; }
+  .facebook { background-color: #3b5998; }
+
+  .mail-link {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s;
+  }
+
+  .consent-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s;
+  }
+
+  .consent-button:hover {
+    background-color: #2980b9;
+  }
+
+  .policy-iframe {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 1rem;
+    border: none;
+    color: white;
+    overflow-y: scroll;
+    background-color: #333333;
+  }
+
+  .footer-bottom {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+    }
+
+    .footer-column:nth-child(2) {
+      order: -1;
+    }
+  }
+</style>

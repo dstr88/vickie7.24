@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets';
+import MiniVickie from "../assets/smallvickie.jpeg";
+---
+<div class="button-container">
+<ul class='button-list'>
+    <li><a href="https://www.thelionslamb.com" ><button class='button'>Home</button></a></li>
+    <li><a href="https://www.thelionslamb.com/blog" ><button class='button'>Back</button></a></li>
+    <li><a href= "https://calendar.google.com/calendar/appointments/schedules/AcZssZ32H0HJslX48oltXq49UPY2rzTGQx1T0FsAkvCW0Zah3r__gJz7Ec6GG9TKRY4AfBKtY9zvNLDq?gv=true"><button class='button'>Schedule your free consult now</button></a></li>
+</ul>
+</div>
+
+<div>
+    <div class="card">
+      <Image src={MiniVickie} alt="Vickie Starkey" class="img"/>
+      <div class="card-content">
+        <h4><b>Vickie Starkey</b></h4>
+        <p>The Lion's Lamb Family Therapy</p>
+      </div>
+    </div>
+
+
+<style>
+    .button-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.img {
+    display: flex;
+    margin-left: 45%;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 50%; 
+  }
+
+  .card-content{
+    margin-left: 40%;
+  }
+
+.button-container {
+    position: absolute;
+    top: 150px;
+    left: 1rem;
+}
+
+.button-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.button {
+    background-color: darkslategray;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.button:hover {
+    background-color: white;
+    color: darkslategray;
+}
+
+.button:hover {
+    background-color: white;
+    color: darkslategray;
+
+}
+</style>

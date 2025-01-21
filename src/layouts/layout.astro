@@ -1,0 +1,108 @@
+---
+
+import Navbar from '../components/navbar.astro';
+import Footer from '../components/footer.astro';
+import '../global.css';
+
+export interface Props {
+  title?: string;
+}
+
+
+export const SignUp ="https://calendar.google.com/calendar/appointments/schedules/AcZssZ10uXQbQSa73Ijjvx-UhH6t9A0FfvbzDokgACETDpezp5DVEDrQNmCOTG5isJd9GF6PPrtQAZsF?gv=true";
+
+const { title = 'The Lions Lamb' } = Astro.props as Props;
+
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> 
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!--font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+<script
+  type="text/javascript"
+  src="https://app.termly.io/resource-blocker/bb7dccca-e9cd-4b78-99ca-860383a1d079?autoBlock=on"
+></script>
+   
+</head>
+  <!-- <body class="bg-transparent navbar container"> -->
+  <body>
+      <div class="leftbox"></div>
+    <div class="BBB" style="background-color: darkslategray;">
+
+      <a href="https://www.bbb.org/us/tn/maryville/profile/mental-health-services/the-lions-lamb-family-therapy-llc-0533-90042351/#sealclick" target="_blank" rel="nofollow"><img src="https://seal-knoxville.bbb.org/seals/blue-seal-200-65-bbb-90042351.png" style="border-style:solid; border-color: darkslategray; margin-left: 50%; margin-top: 5px; max-height:fit-content" alt="The Lion's Lamb Family Therapy, LLC BBB Business Review" /></a>
+
+
+      <!--#2 sowa nor PPWe on movile --
+      <a href="https://www.bbb.org/us/tn/maryville/profile/mental-health-services/the-lions-lamb-family-therapy-llc-0533-90042351/#sealclick" target="_blank" rel="nofollow"><img src="https://seal-knoxville.bbb.org/seals/blue-seal-200-42-whitetxt-bbb-90042351.png" style="border: 0;" alt="The Lion's Lamb Family Therapy, LLC BBB Business Review" /></a>
+    <!--BBB tag script p {outline-color: darkslategray}p.double--  works on mobile
+<a href="https://www.bbb.org/us/tn/maryville/profile/mental-health-services/the-lions-lamb-family-therapy-llc-0533-90042351/#sealclick" target="_blank" rel="nofollow"><img src="https://seal-knoxville.bbb.org/seals/blue-seal-200-42-bbb-90042351.png" style="border-style:solid; border-color: darkslategray; margin-left: 15rem; margin-top: 5px; max-height:fit-content" alt="The Lion's Lamb Family Therapy, LLC BBB Business Review" /></a>
+<!--end BBB tag script -->
+</div>
+      <Navbar />
+    <slot />
+    
+      <Footer />
+
+  </body>
+</html>
+
+<style>
+body, html {
+    margin-top: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    width: 100%; /* Ensure full width */
+    z-index: 2;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+.bbb{
+  position: absolute;
+  justify-items: center;
+  background-color: darkslategray;
+  padding:auto auto;
+}
+.top{
+  position: absolute;
+  justify-items: center;
+  background-color: darkslategray;
+  margin-top: 0%;
+  height: 100px;
+
+
+}
+.leftbox{
+  position:fixed;
+  width: 45%;
+  margin-top: 0;
+  height: 100px;
+}
+
+.container {
+    max-width: 100vw; /* Ensure content doesn't exceed viewport width */
+    margin: 0 auto; /* Center the content horizontally */
+    position: relative; /* Position content at the top */
+    top: 0; /* Align content to the top */
+}
+  .navbar{
+    background-color: transparent;
+  }
+  .transparent-background{
+    background-color: transparent;
+  }
+</style>
+

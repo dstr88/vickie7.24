@@ -1,0 +1,117 @@
+
+
+---
+const { post } = Astro.props;
+---
+
+<li class="blog-card">
+  <h2 class="post-title">
+    <a href={`/${post.slug}`} class="post-link">{post.title}</a>
+  </h2>
+  <p class="post-date">
+    {new Date(post.$createdAt).toLocaleDateString()}
+  </p>
+</li>
+
+<style>
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr; /* Default to one column */
+  gap: 1.5rem; /* Adjust the gap between blog cards */
+}
+
+@media (min-width: 768px) {
+  ul {
+    grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+  }
+}
+
+.blog-card {
+  background-color: darkslategray; /* Adjust as needed */
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.post-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-date {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.post-link {
+  text-decoration: none;
+  color: white;
+  font-style:underline;
+}
+
+.post-link:hover {
+  text-decoration: border: 2px solid white;
+}
+
+.blog-posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two equal columns */
+  gap: 1.5rem; /* Space between the columns */
+}
+
+@media (max-width: 768px) {
+  .blog-posts {
+    grid-template-columns: 1fr; /* Stack in a single column on smaller screens */
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two equal-width columns */
+  gap: 20px; /* Adds space between grid items */
+  padding: 20px;
+}
+
+/* Media query for medium screens */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Collapses to one column */
+  }
+}
+
+.blog-card {
+  background-color: darkslategray; /* Card background */
+  color: white; /* Text color */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.post-title {
+  font-size: 1.5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.post-link {
+  color: antiquewhite; /* Link color */
+  row-gap: 20px;
+}
+
+.post-link:hover {
+  color: whitesmoke; /* Hover link color */
+}
+
+.post-date {
+  font-size: .875rem;
+  color: #666; /* Date text color */
+}
+
+.blog-title {
+  text-align: center; /* Center the label */
+  padding-bottom: 4rem; /* Increase space below label for separation */
+}
+</style>

@@ -1,0 +1,166 @@
+---
+import { Image } from 'astro:assets';
+import Sadeyes from "../assets/sadeyes.jpg";
+---
+
+
+<div class="section-parallax">
+    <a href="https://calendar.app.google/LSEwfCBFsRXHp7Q38"><div class="sadeyes">
+        <Image src={Sadeyes} alt="#" /></a>
+        <div class="typed-text-container">
+            <div id="typedtext"></div>
+        </div>
+    </div>
+</div>   
+
+
+<style>
+    .container {
+        width: 100vw;
+        position: relative;
+        background-color:  linear-gradient(to bottom, #4d2647, #488494);
+    }
+    
+    .section-parallax {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        background-color:darkslategray;
+        z-index: 3;
+    }
+    
+    .sadeyes {
+        position: relative;
+        max-width: 700px;
+        width: 100%;
+        height: auto;
+        z-index: 3;
+        cursor: pointer;
+    }
+    
+    .sadeyes img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        transform: translateY(-80px);
+        max-width: 100%;
+        z-index: 3;
+        cursor: pointer;
+    }
+    
+    .section-parallax:hover {
+        opacity: 1;
+    }
+    
+    .typed-text-container {
+        position: absolute;
+        top: 30%; /* Raise the text up */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center the text vertically */
+        align-items: center;
+        z-index: 5;
+    }
+    
+    #typedtext {
+        font-size: 4vw; /* Adjust font size for better readability on small screens */
+        text-transform: capitalize;
+        color: #fff;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 20px rgba(255, 255, 255, 0.5);
+        padding: 0 10px; /* Adjust padding */
+        text-align: center;
+        line-height: 1.5; /* Line height to bring lines closer together */
+        transition: transform 0.5s ease-out;
+    }
+    
+    /* Media queries for smaller screens */
+    @media (max-width: 768px) {
+        
+        .sadeyes{
+            margin-top: 30%;
+        }
+
+        .section-parallax {
+            
+            height: auto; /* Reduce height on smaller screens */
+            min-height: 100vh;
+            padding:20px 0;
+        }
+    
+        #typedtext {
+            font-size: 8vw; /* Increase font size for readability */
+            height: 5em;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .sadeyes{
+            margin-top: 40%
+        }
+        .section-parallax {
+            height: 60vh; /* Further reduce height on very small screens */
+        }
+    
+        #typedtext {
+            font-size: 8vw; /* Further increase font size for readability */
+            height: 6em;
+        }
+    }
+    </style>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const bannerText = [
+            "Our World is Changing,",
+            "so is Mental Health Therapy.",
+            "You Don't Need Insurance.",
+            "It Only Takes a Few Weeks. It Really Doesn't Have To Be a Life Sentence",
+            "Take 5-10 weeks to heal, and learn to laugh again!",
+            "It Doesn't Cost a Fortune.",
+            "Click Below For A 15 Minute Free Session now.",
+            "&#8650;   &#8650;   &#8650;"
+        ];
+        
+        const iSpeed = 100; // Time delay of print out
+        const iNewLine = 500; // Time delay at line breaks
+        let iIndex = 0; // Start printing array at this position
+        let iTextPos = 0; // Initialize text position
+        let lines = ["", "", ""]; // Array to store lines, initialized with 3 empty lines
+
+        function typewriter() {
+            const typedTextElement = document.getElementById("typedtext");
+            if (!typedTextElement) return;
+
+            if (iIndex < bannerText.length) {
+                if (iTextPos < bannerText[iIndex].length) {
+                    lines[2] += bannerText[iIndex][iTextPos];
+                    iTextPos++;
+                } else {
+                    iTextPos = 0;
+                    iIndex++;
+                    lines.shift();
+                    lines.push("");
+                }
+
+                typedTextElement.innerHTML = lines.join("<br>");
+                
+                setTimeout(typewriter, iTextPos === 0 ? iNewLine : iSpeed);
+            } else {
+                iIndex = 0;
+                iTextPos = 0;
+                lines = ["", "", ""];
+                setTimeout(typewriter, iNewLine);
+            }
+        }
+
+        typewriter();
+    });
+</script>

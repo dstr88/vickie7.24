@@ -1,0 +1,119 @@
+---
+import Layout from "../layouts/layout.astro";
+import Container from "../components/container.astro";
+import LiionYCub from "../components/LiionYCub.astro";
+import { ArticleData, BlogPost } from "../lib/ArticleData";
+import { decodeHtmlEntities, sanitizeHtml } from "../lib/htmlutils";
+
+// Instantiate the ArticleData class
+const articleData = new ArticleData();
+
+// Fetch and transform blog posts
+let posts: BlogPost[] = [];
+try {
+  const rawPosts = await articleData.getPosts(); // Fetch raw posts
+
+  // Map raw posts to BlogPost instances
+  posts = rawPosts.map(
+    (post) =>
+      new BlogPost(
+        post.slug,
+        post.title,
+        sanitizeHtml(decodeHtmlEntities(post.content)), // Sanitize content
+        post.timestamp,
+        post.max_id,
+        post.$id,
+        post.$collectionId,
+        post.$databaseId,
+        post.$createdAt,
+        post.$updatedAt,
+        post.$permissions
+      )
+  );
+
+  // Sort posts by timestamp (newest at the top)
+  posts.sort((a, b) => {
+    const dateA = new Date(a.timestamp).getTime();
+    const dateB = new Date(b.timestamp).getTime();
+    return dateB - dateA; // Descending order
+  });
+
+  console.log("Posts in blog.astro:", posts); // Log posts here
+} catch (error) {
+  console.error("Error fetching posts:", error);
+}
+---
+
+<div class="pg">
+  <Layout>
+    <div class="lion">
+      <LiionYCub />
+    </div>
+    <div class="VickiesList">
+      <div class="blogtitles">
+        <h1 class="sr-only title">Blog Posts</h1>
+        <ul class="list" id="blogPosts">
+          {posts.map((post) => (
+            <li>
+              <a href={`/${post.slug}`} class="post-link">{post.title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </Layout>
+</div>
+
+<style>
+    .pg {
+      background-color: darkslategray;
+      color: white;
+      padding: 4rem;
+      font-size: 2rem;
+    }
+    
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+      color: var(--hover-color);
+      transform: scale(1.05);
+    }
+    
+    .list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .list li {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    
+    .list a {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    @media (max-width: 768px) {
+      .list {
+        grid-template-columns: 1fr;
+      }
+    
+      .list li {
+        padding: 1rem;
+      }
+    
+      .list a {
+        font-size: 1.25rem;
+      }
+    }
+</style>

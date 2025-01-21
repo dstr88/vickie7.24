@@ -1,0 +1,115 @@
+---
+import { Image } from 'astro:assets';
+import HoMe from "../assets/transparentInvest.png";
+import Layout from "../layouts/layout.astro";
+---
+
+<div class="wrapper">
+<Layout>
+    <div class="container">
+        <div class="column">
+        <div class="card">
+            <Image src={ HoMe } alt="home" class="hoMe"></Image>
+            <div class="card-container">
+            <br><br><br><br>
+            <!--
+               "Transforming Spaces, Enriching Lives."
+                "Invest in Yourself: Create a Home, Live Fully."
+                "Invest in Yourself: transform your life, Live Fully."
+                "Building Foundations for a Life Well-Lived."
+                "From House to Home: Nurturing Your Journey."
+                "Crafting Comfort: Turning Lives into Legacies."
+                "Your Journey to a Home that Feels Like You."
+                "Creating Safe Spaces for Authentic Living."
+                "Invest in Your Well-Being: Live, Love, Thrive."
+                "Transforming Lives: From Structure to Sanctuary."
+            -->
+            
+            
+            
+            <h2>Investing in yourself, so you can pour into others</h2>
+             </div>
+        </div>
+    </div>
+        <div class="column">
+
+        <p style="color: white; padding-top: 60px;">You have fought the good fight and the struggle is real. Now, you are ready to talk with a professional. The three cost-related questions you may have are the monetary cost, time cost, and privacy cost. These are valid concerns and barriers to keeping people from the help they need. There are therapists in the area who will give you a mental health diagnosis and charge your insurance. Check out the chart below to see the difference between what they offer and what we offer.</p>
+        </div>
+
+                <ul style="color: white;">
+                    <li>Privacy cost
+                        <div>
+                            <div style="margin-right: 52%;"><strong>Your session is private. Private means that there is no shared documentation that would link you to an unnecessary diagnosis.</strong></div>
+                            <div style="margin-left: 50%; color: orange;">There are therapists in the area who will give you a mental health diagnosis and charge your insurance. This diagnosis will be a permanent part of your medical record. If your employer pays for your insurance, they have access to the equivalent of a receipt and may know you went to an individual psychotherapy session. Additionally, insurance has the right to audit the details of your chart. You gave it to them when you signed the consent form to bill them. Some insurance companies will even claim ownership of your medical records, including those from your therapist. Explanation of benefits will be mailed to the primary insured (parents or spouse), which may lead to uncomfortable questions.</div>
+                        </div>
+                    </li>
+                    <li>Time cost
+                        <div>
+                            <div style="margin-right: 52%;"><strong>Most of my patients are usually better after five to ten sessions and have left their past behind them. However, many look for opportunities to thrive and as a result, choose to stay longer for talk therapy.</strong></div>
+                            <div style="margin-left: 50%; color: orange;">You will spend between 12 to 18 months in weekly therapy, resulting in about 530 hours of therapy, plus logistics and travel time cost.</div>
+                        </div>
+                    </li>
+                    <li>Monetary cost
+                        <div>
+                            <div style="margin-right: 52%;"><strong>I charge $175.00 per 50-minute session, and as stated earlier, most of my clients receive the help they need after five to ten visits.</strong></div>
+                            <div style="margin-left: 50%; color: orange;">If your co-pay is $30 a week and you spend eighteen months in therapy, your total cost will be almost two thousand dollars.</div>
+                        </div>
+                    </li>
+                </ul>
+    </div>
+</Layout>
+</div>
+
+<style>
+
+    .wrapper{
+        background-color: darkslategray;
+        width: 100%;
+        line-height: 1.7;
+        
+
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .column {
+        flex:1;
+        margin-top: 220px;
+        margin-left: 3rem;
+        min-width: 200px;
+    }
+
+    .card{
+        /* Shadows to create the "card effect" */
+       
+        color: white;
+        transition: 0.3s;
+        background-color: darkslategray;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+    .hoMe{
+        padding-left: 80px;
+        transform: rotate(-30deg);
+        max-height: 100px;
+    }
+
+    @media (max-width: 768px) {
+        .column {
+            flex-basis:100%;
+        
+        }   
+    }
+
+</style>

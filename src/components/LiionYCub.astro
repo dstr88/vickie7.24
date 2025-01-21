@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import LionYCub from "../assets/lionYCub.jpg";
+---
+
+<div class="wrapper">
+    <div class="container">
+            <div class="card">
+                <Image src={LionYCub} alt="Vickie Starkey" class="img"/>
+                <div class="card-content">
+                    <h4><b>Vickie Starkey</b></h4>
+                    <p>The Lion's Lamb Family Therapy</p>
+                </div>
+            </div>
+        </div>
+
+        <style>
+
+            .img{
+                display: flex;
+                margin-left: 45%;
+                width: 400px;
+                height: 400px;
+                overflow: hidden;
+                border-radius: 50%; 
+            }
+            .card-content{
+                color: white;
+                font-size: 12px;
+                margin-left: 45%;
+            }
+        </style>

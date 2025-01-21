@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets';
+import ArtArrows from "../assets/consultingArrows.jpg";
+
+---
+<div class="grid-container">
+    <div> 
+      <iframe 
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/GIaZNehsjQk?si=Dbs7r428hTNXnSd_" 
+      title="YouTube video player" 
+      style="border: none;" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" 
+      allowfullscreen
+      ></iframe>
+    </div>
+
+    <div>
+      <iframe 
+      width="560" 
+      height="315" 
+      src="https://www.youtube.com/embed/9HnzHMtfzlk?si=VmTYZu-m1GPgIXfW" 
+      title="YouTube video player" 
+      style="border: none;" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" 
+      allowfullscreen
+      ></iframe>
+    </div>
+
+
+    <div>
+        <iframe 
+          width="560" 
+          height="315" 
+          src="https://www.youtube.com/embed/vP7dx03arxI?si=_PPMBJ-gn33IRTho" 
+          title="YouTube video player" 
+          style="border: none;" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen
+          ></iframe>
+    </div>
+
+    <div>
+        <iframe 
+          width="560" 
+          height="315" 
+          src="https://www.youtube.com/embed/oXhOts-IjxI?si=28-6lbI5lwzD1ny_" 
+          title="YouTube video player" 
+          style="border: none;" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen
+          ></iframe>
+    </div>
+    </div>
+
+  <div class="signpost" style="max-width 300px; max-height: auto;">
+    <a href="https://acceleratedresolutiontherapy.com/"><Image src={ ArtArrows } alt="'arrows pointing people to counseling"><h4>dive deeper down the rabbit hole on the ART website.</h4></Image></a>
+  </div>
+  
+
+
+<style>
+    .grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  background-color: darkslategray;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.grid-container iframe {
+  width: 100%;
+  height: 315px;
+  border: none;
+}
+
+.signpost{
+  display: flex;
+  justify-content: end;
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .grid-container {
+    margin-left: 260px;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid-container {
+    margin-left: 0;
+  }
+}
+
+</style>

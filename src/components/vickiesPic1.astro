@@ -1,0 +1,100 @@
+---
+import { Image } from 'astro:assets';
+import Vickie from "../assets/smallVickie.jpeg";
+---
+
+<div class="wrapper">
+    <div class="container">
+        <div class="column">
+            <div class="card">
+                <Image src={Vickie} alt="Vickie" />
+                <div class="card-content">
+                    <h4><b>Vickie Starkey</b></h4>
+                    <p>The Lion's Lamb Family Therapy</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="meetVickie">
+                <p>As a native East Tennessean, Vickie has devoted her life to help the people of like origin. She has spent 10 years studying the field of psychology, social work and clinical psychology. She has earned a Bachelor's degree in Social Work, and a Master's degree in Christian Family Therapy while serving in the inner city of New Orleans. She is a devoted single Christian mother of two adult children. She decided to open her own business in 2021 and The Lion's Lamb Family Therapy LLC was born. She uses both proven biblical and scientific methods to offer help to the hurting.</p>
+                <a href= "https://calendar.google.com/calendar/appointments/schedules/AcZssZ32H0HJslX48oltXq49UPY2rzTGQx1T0FsAkvCW0Zah3r__gJz7Ec6GG9TKRY4AfBKtY9zvNLDq?gv=true">Schedule an Appointment</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .wrapper {
+        background:darkslategray;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .column {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        background-color: #488494;
+        color: white;
+        overflow: hidden;
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+    a {
+        color: white;
+
+        
+
+    }
+    a:link {
+        text-decoration: underline;
+        color: antiquewhite;
+
+    }
+
+    a:hover, a:active {
+        cursor: pointer;
+        color: whitesmoke;
+        border: 2px solid white;
+    }
+
+    .meetVickie {
+        padding: 50px;
+        background-color: #488494;
+        color: white;
+        width: 100%;
+        height: 100%; /* Changed from auto to 100% */
+        line-height: 1.6;
+        margin: 1rem 2rem;
+        padding: 1rem 2rem;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: italic;
+        font-variation-settings: "wdth" 100;
+    }
+
+    @media (max-width: 768px) {
+        .column {
+            flex-basis: 100%;
+        }
+    }
+</style>

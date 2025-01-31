@@ -79,10 +79,14 @@ export class ArticleData {
             );
 
             return response.documents.map((doc) => {
+                var content = Buffer.from(doc.content, "utf-8").toString()
+                content = content.replaceAll("’", "'");
+                content = content.replaceAll("“", '"');
+                content = content.replaceAll("”", '"');
                 return new BlogPost(
                     doc.slug,
                     doc.title,
-                    doc.content,
+                    content,
                     new Date(doc.$createdAt).toISOString(),
                     "",
                     doc.$id,
